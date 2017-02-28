@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A6F38D2-2CB7-4156-AB43-F089DD504FB9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scolaris</RootNamespace>
+    <AssemblyName>Scolaris</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Scolaris.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql, Version=2.2.4.3, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\The Npgsql Development Team\Npgsql\Npgsql-2.2.4.3-net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\Bll.cs" />
+    <Compile Include="BLL\DictionnaireBLL.cs" />
+    <Compile Include="BLL\DB\MatiereBLL.cs" />
+    <Compile Include="BLL\DB\GroupeMatiereBLL.cs" />
+    <Compile Include="BLL\LangueBLL.cs" />
+    <Compile Include="BLL\ServeurBLL.cs" />
+    <Compile Include="DAO\DictionnaireDAO.cs" />
+    <Compile Include="DAO\Dao.cs" />
+    <Compile Include="DAO\DB\MatiereDAO.cs" />
+    <Compile Include="DAO\DB\GroupeMatiereDAO.cs" />
+    <Compile Include="DAO\LangueDAO.cs" />
+    <Compile Include="DAO\ServeurDAO.cs" />
+    <Compile Include="ENTITE\DB\GroupeMatiere.cs" />
+    <Compile Include="ENTITE\DB\Matiere.cs" />
+    <Compile Include="ENTITE\Dictionnaire.cs" />
+    <Compile Include="ENTITE\Entite.cs" />
+    <Compile Include="ENTITE\Langue.cs" />
+    <Compile Include="ENTITE\Serveur.cs" />
+    <Compile Include="Form_Parent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Parent.Designer.cs">
+      <DependentUpon>Form_Parent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IHM\Form_Langue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IHM\Form_Langue.Designer.cs">
+      <DependentUpon>Form_Langue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IHM\DB\Form_Groupe_Matiere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IHM\DB\Form_Groupe_Matiere.Designer.cs">
+      <DependentUpon>Form_Groupe_Matiere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IHM\Form_Dictionnaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IHM\Form_Dictionnaire.Designer.cs">
+      <DependentUpon>Form_Dictionnaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IHM\Form_Serveur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IHM\Form_Serveur.designer.cs">
+      <DependentUpon>Form_Serveur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TOOLS\Chemins.cs" />
+    <Compile Include="TOOLS\Configuration.cs" />
+    <Compile Include="TOOLS\Connexion.cs" />
+    <Compile Include="TOOLS\Constantes.cs" />
+    <Compile Include="TOOLS\Logs.cs" />
+    <Compile Include="TOOLS\Messages.cs" />
+    <Compile Include="TOOLS\Mots.cs" />
+    <Compile Include="TOOLS\ObjectThread.cs" />
+    <Compile Include="TOOLS\ReadWrite.cs" />
+    <Compile Include="TOOLS\Utils.cs" />
+    <EmbeddedResource Include="Form_Parent.resx">
+      <DependentUpon>Form_Parent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IHM\Form_Langue.resx">
+      <DependentUpon>Form_Langue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IHM\DB\Form_Groupe_Matiere.resx">
+      <DependentUpon>Form_Groupe_Matiere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IHM\Form_Dictionnaire.resx">
+      <DependentUpon>Form_Dictionnaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IHM\Form_Serveur.resx">
+      <DependentUpon>Form_Serveur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\admin_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\appareil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\configure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\connecte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\connected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\db.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\documentinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\easymoblog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\edit_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\empreinte_mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\endturn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\group_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\in_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\irkick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\irkickflash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\no_vue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\player_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\player_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\prec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\restart-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\resume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\rotate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\rotate_cw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\signal_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\signal_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\signal_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\unconnecte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ACTIONS\vue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\acces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\ajouter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\article.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\catalogue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\famille.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\in_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\inventaire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\mouvement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\niveau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\pc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\remote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\uninstall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\vu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\vu_non.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\antivirus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\assistant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\atlantik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\fortress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\kfm_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\agt_internet.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
